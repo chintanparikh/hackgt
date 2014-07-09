@@ -49,3 +49,26 @@ nav {
 #trailer {
 	display: none;
 }
+
+#sponsor-wall > a[href="http://cardlytics.com"] > img{
+	max-height: 100px;
+}
+
+#sponsor-wall > a[href="http://bitpay.com"] > img{
+	max-height: 100px;
+}
+
+#judges ul li p {
+	text-align: center;
+}
+
+#judges > div > div > ul {
+
+	text-align: center;
+	position: relative;
+	right: 20px;
+}
+
+#logo-container {
+	margin-top: -100px;
+}

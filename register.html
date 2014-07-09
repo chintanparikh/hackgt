@@ -15,33 +15,12 @@
         <script src="js/scrolls.js"></script>
   </head>
   <body>
-
-      <?php
-              require_once("config.php");
-
-              if (isset($email)) {
-                  if ($confirmpassword !== $password) {
-                      echo '<div class = "error-msg">Passwords do not match</div>';
-                  }else{
-                      if (($mysqli->query("INSERT INTO user (email, password, name, school) VALUES ('$email', '$password', '$name', '$school')") === TRUE) && ($mysqli->query("INSERT INTO forms (email) VALUES ('$email')") === TRUE)) {
-                          $_SESSION['user'] = $email;
-                          if ($_SESSION['user']) {
-                              header("Location: status.php");
-                          }
-                      } else {
-                          echo '<div class = "error-msg">Please check your registration information</div>';
-                      }
-                  }
-              }
-
-          ?>
   
- <form class="" method="POST" action="register.php">
-        <input required class="form-control" type="email" name="email" placeholder="Email Address">
-        <input required class="form-control" type="password" name="password" placeholder="Password">
-        <input required class="form-control" type="password" name="confirmpassword" placeholder="Confirm Password">
-        <input required class="form-control" type="text" name="name" placeholder="Full Name">
-        <select required class="form-control" placeholder="School" name="school">
+ <form class="" method="POST" action="submit.php" style="text-align: center;">
+        <img src="img/logo-icon.svg" style="width: 100px; margin: 0 auto;">
+        <input required class="form-control" type="text" name="name" placeholder="Full Name" required>
+        <input required class="form-control" type="email" name="email" placeholder="Email" required>
+        <select required class="form-control" placeholder="School" name="school" required>
             <option value=""  disabled selected>School</option>
             <option value="Other/Unlisted">Other/Unlisted</option>
             <option value="Abilene Christian University (TX)">Abilene Christian University (TX)</option>
@@ -1833,12 +1812,52 @@
             <option value="York College of Pennsylvania (PA)">York College of Pennsylvania (PA)</option>
             <option value="York University (None)">York University (None)</option>
             <option value="Youngstown State University (OH)">Youngstown State University (OH)</option></select>
-        <select class="form-control" placeholder="Gender" name="gender">
+        <input required class="form-control" type="major" name="major" placeholder="Major" required>
+
+        <select class="form-control" placeholder="Year" name="year" required>
+            <option value="" disabled selected>Year</option>
+            <option value="freshman">Freshman</option>
+            <option value="sophomore">Sophomore</option>
+            <option value="junior">Junior</option>
+            <option value="senior">Senior</option>
+            <option value="other">Other</option>
+        </select>      
+        <input required class="form-control" type="github" name="github" placeholder="GitHub link (optional)">
+        <input required class="form-control" type="resume" name="resume" placeholder="Resume link (optional)">
+        <select class="form-control" placeholder="Is this your first hackathon" name="firsthackathon" required>
+            <option value="" disabled selected>Is this your first hackathon?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <input required class="form-control" type="diet" name="diet" placeholder="Diet Restrictions (if any)">
+        <select class="form-control" placeholder="Do you need travel re-imbursement" name="reimbursement" required>
+            <option value="" disabled selected>Do you need travel re-imbursement</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+                    <textarea  class='form-control' style='height: 500px' name='projects' placeholder='Waiver' required disabled>Georgia Institute of Technology 
+Liability Release, Waiver, Discharge and Covenant Not to Sue 
+ 
+This is a legally binding Release, Waiver, Discharge and Covenant Not to Sue (collectively, "Release"), made voluntarily by me, the undersigned Releasor, on my own behalf, and on behalf of my heirs, executors, administrators, legal representatives and assigns (hereinafter collectively, "Releasor," "I" or "me", which terms shall also include Releasor's parents or guardian, if Releasor is under 18 years of age) to the Georgia Institute of Technology ("Georgia Tech"). As the undersigned Releasor, I fully recognize that there are dangers and risks to which I may be exposed by participating in the program, trip or other activity described as the Georgia Tech hackathon (A.K.A. HackGT or any variant thereof, the chief activities of which, as examples but not limited to, are the programming of a laptop or desktop computer, modification of computer hardware or computer peripherals, or modification of computer networks) September 19-21, 2014, which includes an overnight component (the "Activity") and will take place on the Georgia Tech campus, including but not limited to the Klaus Advanced Computing Building, College of Computing, and Ferst Center. As the undersigned Releasor, I understand that Georgia Tech does not require me to participate in this Activity, but I want to do so despite the possible dangers and risks and despite this Release. 
+ 
+With informed consent, and for valuable consideration received, including assistance provided by Georgia Tech, as the undersigned Releasor, I agree to assume and take on myself all of the risks and responsibilities in any way arising from or associated with this Activity, and I release Georgia Tech and all of its affiliates, divisions, departments and other units, committees and groups, and its and their respective governing boards, officers, directors, principals, trustees, legal representatives, members, owners, employees, volunteers, agents, administrators, assigns, and contractors (collectively "Releasees"), from any and all claims, demands, suits, judgments, damages, actions and liabilities of every name and nature whatsoever, whenever occurring, whether known or unknown, contingent or fixed, at law or in equity, that I may suffer at any time arising from or in connection with the Activity, including any injury or harm to me, my death, or damage to my property (collectively "Liabilities"), unless caused by the reckless endangerment or willful misconduct of Releasees, and I agree to defend, indemnify, and save Releasees harmless from and against any and all Liabilities. As the undersigned Releasor, I recognize that this Release means I am giving up, among other things, all rights to sue Releasees for injuries, damages or losses I may incur. I also understand that this Release binds my heirs, executors, administrators, legal representatives and assigns, as well as myself. I also affirm that I have adequate medical or health insurance to cover any medical assistance I may require. 
+ 
+I recognize that this Release means I am giving up, among other things, rights to sue the Institute, the State of Georgia, the Board of Regents of the University System of Georgia, employees, and agents for injuries, damages, or losses I may incur.  I also understand that this Release binds my heirs, executors, administrators, and assigns, as well as myself.  
+ 
+I have read this entire Release. I fully understand the entire Release and acknowledge that I have had the opportunity to review this Release with an attorney of my choosing if I so desire, and I agree to be legally bound by the Release.</textarea>
+        <input required class="form-control" type="waiversign" name="waiversign" placeholder="Enter your name to sign the waiver" required>
+        <p>We love data. The following fields are completely optional and will only be used to compile demographics data, and will in no way influence your application.</p>
+        <input required class="form-control" type="race" name="race" placeholder="Race" required>
+
+
+        <select class="form-control" placeholder="Gender" name="gender" required>
             <option value="" disabled selected>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
         <input class="form-control" type="submit" value="Submit">
-        <input class="form-control" type="button" value="I have an account" onclick="location.href = 'login.php'">
     </form>
 
     </body>
