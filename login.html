@@ -1,0 +1,48 @@
+<?php
+require_once("config.php");
+
+if (isset($email)) {
+    if ($result = $mysqli->query("SELECT 1 FROM user WHERE email = '$email' AND password = '$password'")) {
+        if ($result->num_rows == 1) {
+            $_SESSION['user'] = $email;
+        } else {
+            echo '<div class = "error-msg">Please check your email/password</div>';
+        }
+        $result->close();
+    } else {
+        echo '<div class = "error-msg">Login Error</div>';
+    }
+}
+
+if ($_SESSION['user']) {
+    header("Location: status.php");
+}
+
+?>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HackGT</title>
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/register.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,700,900' rel='stylesheet' type='text/css'>
+        <script type="text/javascript">console.log("Come and play motherfucker");</script>
+        <script src="js/scrolls.js"></script>
+  </head>
+  <body>
+<body class="users-cover-bg">
+<form class="gt-form" method="POST" action="login.php" style="top:-5%">
+    <input class="form-control" type="email" name="email" placeholder="Email Address">
+    <input class="form-control" type="password" name="password" placeholder="Password">
+    <input class="form-control" type="submit" value="Log In">
+    <input class="form-control" type="button" value="Create account" onclick="location.href = 'register.php'">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HackGT</title>
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/register.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,700,900' rel='stylesheet' type='text/css'>
+        <script type="text/javascript">console.log("Come and play motherfucker");</script>
+        <script src="js/scrolls.js"></script>
+  </head>
+  <body>
+            <form class='gt-form' method='POST' action='apply.php' style='top:10% height:80%;'>
+                <input hidden type='text' name='email' value='$email'>
+                <input hidden type='text' name='submittedFinal' value='doneski'>
+              	<input class='form-control' type='text' name='github' placeholder='Github?'>
+              	<input class='form-control' type='text' name='challengepost' placeholder='ChallengePost/Other?'>
+              	<input class='form-control' type='text' name='linkedin' placeholder='LinkedIn?'>
+              	<input class='form-control' type='text' name='personalsite' placeholder='Personal Website?'>
+                <select required class='form-control' name='firsttime'>
+                    <option value='' disabled selected>Is this your first hackathon?</option>
+                    <option value='Yes' >Yes</option>
+                    <option value='No' >No</option>
+                </select>
+                <select required class='form-control' name='interest'>
+                    <option value='' disabled selected>Interested In:</option>
+                    <option value='Hardware' >Hardware</option>
+                    <option value='Software' >Software</option>
+                    <option value='Design' >Design</option>
+                </select>
+                <input class='form-control' type='text' name='more' placeholder='Any other links'>
+                <p>Talk about a few projects you'd like to highlight (include links!)</p>
+                <textarea  class='form-control' style='overflow:scroll; font-size:1em;' name='projects' placeholder='Projects!!!' required></textarea>
+                <p>Ethnicity is optional, but this could give you access to great opportunities from our sponsors. It won't be used for our decision.</p>
+                <select class='form-control' name='ethnicity'>
+                    <option value='' disabled selected>Ethnicity</option>
+                    <option value='Asian' >Asian</option>
+                    <option value='Pacific_Islander' >Pacific Islander</option>
+                    <option value='Hispanic/Latino' >Hispanic/Latino</option>
+                    <option value='Caucasian' >Caucasian</option>
+                    <option value='African_American' >African American</option>
+                    <option value='Middle_Eastern' >Middle Eastern</option>
+                    <option value='Native_American/Alaskan' >Native American/Alaskan</option>
+                    <option value='Other' >Other</option>
+                 </select>
+                <input class='form-control' type='submit' value='Submit Final'>
+                <input class='form-control' type='button' value='Back to Dash' onclick=\"location.href = 'status.php'\">
+            </form>
+
+    </body>
+</html>

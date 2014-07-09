@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HackGT</title>
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/register.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,700,900' rel='stylesheet' type='text/css'>
+        <script type="text/javascript">console.log("Come and play motherfucker");</script>
+        <script src="js/scrolls.js"></script>
+  </head>
+  <body>            
+            <form class="gt-form" method="POST" action="travel.php" style="top:10%" >
+                <input hidden="" type="text" name="email" value="asd@asd.com">
+                <input hidden="" type="text" name="submittedFinal" value="doneski">
+                <select required="" class="form-control" name="travel_yn">
+                    <option value="" disabled="" selected="">Need Reimbursement?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <select required="" class="form-control" name="from">
+                    <option value="" disabled="" selected="">Traveling from School?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <input class="form-control" type="text" name="from_comments" placeholder="If not, where?">
+                <input class="form-control" type="submit" value="Submit Final">
+                <input class="form-control" type="button" value="Back to Dash" onclick="location.href = 'status.php'">
+            </form>
+    </body>
+</html>
